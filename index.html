@@ -3,86 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shakeel Ahmed | Home</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Developer Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --text: #e2e8f0;
+            --bg: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tech-item {
+            background: var(--secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .projects {
+            padding: 4rem 0;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Navigation Menu -->
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Header Section -->
-    <header>
-        <h1>Shakeel Ahmed</h1>
-        <p>Biomedical Engineer turned Roboticist | AI Enthusiast | Open Source Contributor</p>
-    </header>
-    
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            Welcome to my personal website! I am passionate about Robotics, AI, Medical Engineering, and Hardware Development. 
-            I actively contribute to open-source projects and work on cutting-edge robotics applications.
-        </p>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>Short description of Project 1.</p>
-                <a href="#">View Project</a>
+    <div id="particles-js"></div>
+    <div class="container">
+        <nav>
+            <div class="logo">Portfolio</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
             </div>
-            <div class="project-card">
-                <h3>Project 2</h3>
-                <p>Short description of Project 2.</p>
-                <a href="#">View Project</a>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Technical Portfolio</h1>
+                <p>Python | C++ | Machine Learning | Simulation</p>
+                <div class="tech-stack">
+                    <div class="tech-item">Python</div>
+                    <div class="tech-item">C++</div>
+                    <div class="tech-item">IsaacSim</div>
+                    <div class="tech-item">LLMs</div>
+                </div>
             </div>
-            <div class="project-card">
-                <h3>Project 3</h3>
-                <p>Short description of Project 3.</p>
-                <a href="#">View Project</a>
+        </section>
+
+        <section class="projects" id="projects">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Simulation Project</h3>
+                    <p>Advanced robotics simulation using IsaacSim with physics-based interactions.</p>
+                </div>
+                <div class="project-card">
+                    <h3>LLM Implementation</h3>
+                    <p>Custom implementation of language models with optimization techniques.</p>
+                </div>
+                <div class="project-card">
+                    <h3>C++ Engine</h3>
+                    <p>High-performance computing engine for real-time data processing.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Contact Section with Form -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:shakeel@example.com">shakeel@example.com</a></p>
-
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="_replyto" required>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <button type="submit">Send</button>
-        </form>
-    </section>
-
-    <!-- Footer with Social Media Links -->
-    <footer>
-        <p>&copy; 2024 Shakeel Ahmed. All Rights Reserved.</p>
-        <div class="social-links">
-            <a href="https://github.com/iamshakeelsindhu" target="_blank">GitHub</a> |
-            <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a> |
-            <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <script>
+        particlesJS('particles-js',
+          {
+            "particles": {
+              "number": {
+                "value": 80,
+                "density": {
+                  "enable": true,
+                  "value_area": 800
+                }
+              },
+              "color": {
+                "value": "#2563eb"
+              },
+              "shape": {
+                "type": "circle"
+              },
+              "opacity": {
+                "value": 0.5,
+                "random": false
+              },
+              "size": {
+                "value": 3,
+                "random": true
+              },
+              "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#2563eb",
+                "opacity": 0.4,
+                "width": 1
+              },
+              "move": {
+                "enable": true,
+                "speed": 6,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false
+              }
+            },
+            "interactivity": {
+              "detect_on": "canvas",
+              "events": {
+                "onhover": {
+                  "enable": true,
+                  "mode": "repulse"
+                },
+                "onclick": {
+                  "enable": true,
+                  "mode": "push"
+                },
+                "resize": true
+              }
+            },
+            "retina_detect": true
+          }
+        );
+    </script>
 </body>
 </html>
