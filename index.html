@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Portfolio</title>
+    <title>Portfolio Home</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <style>
+        /* We'll move this to a separate style.css file later */
         :root {
             --primary: #2563eb;
             --secondary: #1e40af;
@@ -104,24 +105,22 @@
 
         .projects {
             padding: 4rem 0;
+            text-align: center;
         }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .view-all-btn {
+            display: inline-block;
             margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
         }
 
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
+        .view-all-btn:hover {
+            background: var(--secondary);
         }
 
         @media (max-width: 768px) {
@@ -141,9 +140,10 @@
         <nav>
             <div class="logo">Portfolio</div>
             <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
+                <a href="index.html">Home</a>
+                <a href="about.html">About/CV</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
             </div>
         </nav>
 
@@ -160,22 +160,9 @@
             </div>
         </section>
 
-        <section class="projects" id="projects">
+        <section class="projects">
             <h2>Featured Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Simulation Project</h3>
-                    <p>Advanced robotics simulation using IsaacSim with physics-based interactions.</p>
-                </div>
-                <div class="project-card">
-                    <h3>LLM Implementation</h3>
-                    <p>Custom implementation of language models with optimization techniques.</p>
-                </div>
-                <div class="project-card">
-                    <h3>C++ Engine</h3>
-                    <p>High-performance computing engine for real-time data processing.</p>
-                </div>
-            </div>
+            <a href="projects.html" class="view-all-btn">View All Projects</a>
         </section>
     </div>
 
