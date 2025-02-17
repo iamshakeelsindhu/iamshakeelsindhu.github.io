@@ -7,34 +7,82 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
     <header>
         <h1>Shakeel Ahmed</h1>
         <p>Biomedical Engineer turned Roboticist | AI Enthusiast | Open Source Contributor</p>
     </header>
     
+    <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>Welcome to my personal website. I am passionate about Robotics, AI, Medical Engineering and Hardware Development.</p>
+        <p>
+            Welcome to my personal website! I am passionate about Robotics, AI, Medical Engineering, and Hardware Development. 
+            I actively contribute to open-source projects and work on cutting-edge robotics applications.
+        </p>
     </section>
-    
+
+    <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
-        <ul>
-            <li><a href="#">Project 1</a></li>
-            <li><a href="#">Project 2</a></li>
-            <li><a href="#">Project 3</a></li>
-        </ul>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Project 1</h3>
+                <p>Short description of Project 1.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Project 2</h3>
+                <p>Short description of Project 2.</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Project 3</h3>
+                <p>Short description of Project 3.</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
     </section>
-    
+
+    <!-- Contact Section with Form -->
     <section id="contact">
-        <h2>Contact</h2>
+        <h2>Contact Me</h2>
         <p>Email: <a href="mailto:shakeel@example.com">shakeel@example.com</a></p>
+
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="_replyto" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
     </section>
-    
+
+    <!-- Footer with Social Media Links -->
     <footer>
         <p>&copy; 2024 Shakeel Ahmed. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/iamshakeelsindhu" target="_blank">GitHub</a> |
+            <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a> |
+            <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
+        </div>
     </footer>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
