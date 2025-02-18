@@ -1,110 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- [Previous head section and styles remain the same] -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me/CV</title>
-    <style>
-        /* Copy the same root and basic styles from index.html */
-        :root {
-            --primary: #2563eb;
-            --secondary: #1e40af;
-            --text: #e2e8f0;
-            --bg: #0f172a;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            margin-bottom: 2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .about-section {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .profile-image {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 8px;
-        }
-
-        .cv-section {
-            margin-bottom: 2rem;
-        }
-
-        .cv-section h2 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .experience-item {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-        }
-
-        .experience-item h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-item .date {
-            color: var(--secondary);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .about-section {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <!-- [Previous styles remain the same] -->
+    <title>About Me/CV - Shakeel Ahmed</title>
+    <!-- [Keep all the previous styles] -->
 </head>
 <body>
     <div class="container">
         <nav>
-            <div class="logo">Portfolio</div>
+            <div class="logo">Shakeel Ahmed</div>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="about.html">About/CV</a>
@@ -115,41 +20,87 @@
 
         <div class="about-section">
             <div>
-                <img src="/api/placeholder/300/300" alt="Profile Image" class="profile-image">
+                <!-- You'll need to add your actual photo here -->
+                <img src="/api/placeholder/300/300" alt="Shakeel Ahmed" class="profile-image">
+                <div class="contact-info" style="margin-top: 1rem;">
+                    <p><strong>Email:</strong> shakeelsindhu@hotmail.com</p>
+                    <p><strong>Phone:</strong> (+92) 3234961041 / (+886) 902 459694</p>
+                    <p><strong>Location:</strong> Taoyuan City, Taiwan</p>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="https://www.linkedin.com/in/iamshakeelsindhu/" target="_blank">LinkedIn</a>
+                        <a href="https://iamshakeelsindhu.github.io/" target="_blank">GitHub</a>
+                    </div>
+                </div>
             </div>
             <div>
-                <h1>About Me</h1>
-                <p>I am a student passionate about programming and simulation. My expertise includes Python, C++, and working with LLMs. I'm currently focused on simulation projects using IsaacSim.</p>
+                <h1>Professional Summary</h1>
+                <p>Robotics and AI focused Mechatronics graduate student with 7 years of Biomedical Engineering experience. Specialized in robotic applications using IsaacSim (Nvidia), ROS2, and Computer Vision, while having extensive background in medical equipment maintenance and healthcare automation. Currently developing vision-guided robotic manipulators while implementing LLMs for enhanced autonomy.</p>
             </div>
         </div>
 
         <div class="cv-section">
             <h2>Education</h2>
             <div class="experience-item">
-                <h3>Your University Name</h3>
-                <div class="date">2020 - Present</div>
-                <p>Degree Program</p>
+                <h3>Master's in Opto-Mechatronics</h3>
+                <div class="date">February 2023 - Present</div>
+                <p>National Central University, Taoyuan, Taiwan</p>
+                <p>Focus: ML and Applications, DL and Computer Vision</p>
+            </div>
+            <div class="experience-item">
+                <h3>B.Sc. Biomedical Engineering Technology</h3>
+                <div class="date">October 2013 - September 2017</div>
+                <p>University of Engineering and Technology New Campus, Lahore, Pakistan</p>
+                <p>Focus: Biomedical Instrumentation, Imaging and Microcontrollers</p>
+            </div>
+        </div>
+
+        <div class="cv-section">
+            <h2>Work Experience</h2>
+            <div class="experience-item">
+                <h3>Biomedical Engineer/Clinical Engineer Level-I</h3>
+                <div class="date">November 2017 - February 2023</div>
+                <p>Shaukat Khanum Memorial Cancer Hospital and Research Centre, Lahore, Pakistan</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Led maintenance and calibration programs for critical medical equipment</li>
+                    <li>Managed biomedical operations across Operation Rooms, CSSD, and In-patient departments</li>
+                    <li>Implemented data-driven maintenance scheduling using HIS</li>
+                    <li>Supervised technical team of 8 members</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Product Specialist</h3>
+                <div class="date">July 2017 - November 2017</div>
+                <p>Mediland Pakistan, Lahore</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Led technical and financial proposal development for CSSD equipment</li>
+                    <li>Designed and optimized CSSD facility layouts using 2D CAD</li>
+                </ul>
             </div>
         </div>
 
         <div class="cv-section">
             <h2>Technical Skills</h2>
             <div class="experience-item">
-                <h3>Programming Languages</h3>
-                <p>Python, C++</p>
+                <h3>Core Technologies</h3>
+                <p>Robotics and AI, Nvidia-Isaac Sim, ROS2, Computer Vision</p>
             </div>
             <div class="experience-item">
-                <h3>Technologies</h3>
-                <p>IsaacSim, Machine Learning, LLMs</p>
+                <h3>Programming & Tools</h3>
+                <p>Python, Arduino, MATLAB, LLMs, IoT, Microsoft Office</p>
             </div>
         </div>
 
         <div class="cv-section">
-            <h2>Experience</h2>
+            <h2>Notable Achievements</h2>
             <div class="experience-item">
-                <h3>Position Title</h3>
-                <div class="date">Date - Present</div>
-                <p>Description of your role and responsibilities</p>
+                <h3>5-Years Long Service Award and Employee of the Year</h3>
+                <div class="date">2023</div>
+                <p>Shaukat Khanum Memorial Cancer Hospital and Research Centre</p>
+            </div>
+            <div class="experience-item">
+                <h3>Innovative Engineering Approach</h3>
+                <div class="date">2022</div>
+                <p>Shaukat Khanum Memorial Cancer Hospital and Research Centre</p>
             </div>
         </div>
     </div>
