@@ -6,7 +6,6 @@
     <title>About Me/CV - Shakeel Ahmed</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <style>
-        /* Root Variables */
         :root {
             --primary: #3b82f6;
             --secondary: #60a5fa;
@@ -16,7 +15,6 @@
             --hover-bg: rgba(51, 65, 85, 0.8);
         }
 
-        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -30,131 +28,192 @@
             line-height: 1.6;
         }
 
-        /* Existing Styles */
-        [Your existing styles from the previous about.html]
-
-        /* New CV Preview and Download Styles */
-        .cv-download {
-            margin-top: 1.5rem;
-            text-align: center;
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
 
-        .cv-link {
-            display: inline-flex;
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.5rem;
-            background: var(--primary);
-            color: var(--text);
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            padding: 1rem 2rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            margin-bottom: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .cv-link:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        .nav-links {
+            display: flex;
+            gap: 2rem;
         }
 
-        .cv-preview-section {
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            background: var(--hover-bg);
+            color: var(--secondary);
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-container {
             background: var(--card-bg);
             border-radius: 12px;
             padding: 2rem;
-            margin-bottom: 2rem;
+            height: fit-content;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .cv-preview-section h2 {
+        .profile-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--secondary);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: var(--hover-bg);
+            border-radius: 6px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            gap: 0.5rem;
+        }
+
+        .link-button:hover {
+            transform: translateY(-2px);
+            background: var(--primary);
+        }
+
+        .cv-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cv-section h2 {
             color: var(--secondary);
             margin-bottom: 1.5rem;
             font-size: 1.8rem;
         }
 
-        .cv-preview-container {
+        .experience-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
             background: rgba(255, 255, 255, 0.03);
             border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
+            transition: transform 0.3s;
         }
 
-        .pdf-container {
-            width: 100%;
-            height: 600px;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            overflow: hidden;
+        .experience-item:hover {
+            transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.05);
         }
 
-        .cv-preview {
-            width: 100%;
-            height: 100%;
-            border: none;
+        .experience-item h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
         }
 
-        .cv-actions {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .cv-link-large {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: var(--primary);
-            color: var(--text);
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            animation: pulse 2s infinite;
-        }
-
-        .cv-link-large:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
-        }
-
-        .cv-icon {
-            font-size: 1.2rem;
-        }
-
-        .cv-note {
+        .experience-item .date {
             color: var(--text);
             opacity: 0.8;
             font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
 
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
-            }
+        .tech-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
         }
 
-        /* Responsive Styles */
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--text);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+
+        .project-highlights {
+            margin-top: 1rem;
+        }
+
+        .project-highlights ul {
+            list-style: none;
+            margin-left: 1rem;
+        }
+
+        .project-highlights li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .project-highlights li::before {
+            content: "•";
+            color: var(--secondary);
+            position: absolute;
+            left: -1rem;
+        }
+
         @media (max-width: 768px) {
-            .pdf-container {
-                height: 400px;
-            }
-            
-            .cv-actions {
-                padding: 1rem;
-            }
-            
             .about-section {
                 grid-template-columns: 1fr;
             }
@@ -172,13 +231,16 @@
             .nav-links {
                 flex-direction: column;
             }
+
+            .social-links {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
     <div class="container">
-        <!-- Navigation -->
         <nav>
             <div class="logo">Shakeel Ahmed</div>
             <div class="nav-links">
@@ -189,7 +251,6 @@
             </div>
         </nav>
 
-        <!-- About Section -->
         <div class="about-section">
             <div class="profile-container">
                 <img src="photo/photo.png" alt="Shakeel Ahmed" class="profile-image">
@@ -197,14 +258,13 @@
                     <p><strong>Email:</strong> shakeelsindhu@hotmail.com</p>
                     <p><strong>Phone:</strong> (+886) 902 459694</p>
                     <p><strong>Location:</strong> Taoyuan City, Taiwan</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/iamshakeelsindhu/" target="_blank" class="social-link">LinkedIn</a>
-                        <a href="https://github.com/iamshakeelsindhu/" target="_blank" class="social-link">GitHub</a>
-                    </div>
-                    <!-- CV Download Button -->
-                    <div class="cv-download">
-                        <a href="assets/cv/Shakeel_Ahmed_CV.pdf" class="cv-link" download>
-                            <span class="cv-icon">📄</span>
+                    <div class="links-container">
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/iamshakeelsindhu/" target="_blank" class="link-button">LinkedIn</a>
+                            <a href="https://github.com/iamshakeelsindhu/" target="_blank" class="link-button">GitHub</a>
+                        </div>
+                        <a href="assets/cv/Shakeel_Ahmed_CV.pdf" class="link-button" download>
+                            <span>📄</span>
                             Download CV
                         </a>
                     </div>
@@ -216,32 +276,87 @@
             </div>
         </div>
 
-        <!-- CV Preview Section -->
-        <div class="cv-preview-section">
-            <h2>Curriculum Vitae</h2>
-            <div class="cv-preview-container">
-                <div class="pdf-container">
-                    <object data="assets/cv/Shakeel_Ahmed_CV.pdf" type="application/pdf" class="cv-preview">
-                        <p>Your browser doesn't support PDF preview. 
-                           No worries! You can still download it.</p>
-                    </object>
-                </div>
-                <div class="cv-actions">
-                    <a href="assets/cv/Shakeel_Ahmed_CV.pdf" class="cv-link-large" download>
-                        <span class="cv-icon">📄</span>
-                        Download Full CV
-                    </a>
-                    <p class="cv-note">PDF format • Last updated May 2024</p>
-                </div>
+        <div class="cv-section">
+            <h2>Education</h2>
+            <div class="experience-item">
+                <h3>Master's in Opto-Mechatronics</h3>
+                <div class="date">February 2023 - Present</div>
+                <p>National Central University, Taoyuan, Taiwan</p>
+                <p>Focus: ML and Applications, DL and Computer Vision</p>
+            </div>
+            <div class="experience-item">
+                <h3>B.Sc. Biomedical Engineering Technology</h3>
+                <div class="date">October 2013 - September 2017</div>
+                <p>University of Engineering and Technology New Campus, Lahore, Pakistan</p>
+                <p>Focus: Biomedical Instrumentation, Imaging and Microcontrollers</p>
             </div>
         </div>
 
-        [Rest of your existing content: Education, Work Experience, Projects, etc.]
+        <!-- Rest of your sections remain the same -->
+        <!-- Work Experience Section -->
+        <!-- Projects Section -->
+        <!-- Technical Skills Section -->
+        <!-- Notable Achievements Section -->
 
     </div>
 
-    <!-- Particles.js Configuration -->
-    [Your existing particles.js script]
-
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#3b82f6"
+                },
+                "shape": {
+                    "type": "circle"
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false
+                },
+                "size": {
+                    "value": 3,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#3b82f6",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
 </body>
 </html>
