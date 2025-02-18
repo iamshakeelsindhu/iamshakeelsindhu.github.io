@@ -5,72 +5,243 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Shakeel Ahmed</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
     <style>
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        :root {
+            --primary: #3b82f6;
+            --secondary: #60a5fa;
+            --text: #f8fafc;
+            --bg: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --hover-bg: rgba(51, 65, 85, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
             gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            background: var(--hover-bg);
+            color: var(--secondary);
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .project-container {
+            margin-bottom: 4rem;
         }
 
         .project-card {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            margin-bottom: 3rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            border-color: var(--secondary);
+        }
+
+        .project-header {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
         }
 
         .project-image {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .project-content {
-            padding: 1.5rem;
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
         }
 
         .project-title {
+            font-size: 2rem;
             color: var(--secondary);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-date {
+            color: var(--text);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .project-content {
+            padding: 2rem;
         }
 
         .project-description {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .features-title {
+            color: var(--secondary);
             margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: "•";
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.2);
             color: var(--text);
-            opacity: 0.9;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: rgba(59, 130, 246, 0.3);
+            transform: translateY(-2px);
         }
 
         .project-links {
             display: flex;
             gap: 1rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
 
-        .project-status {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
+        .project-link {
+            padding: 0.8rem 1.5rem;
+            background: var(--primary);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .status-active {
-            background: rgba(34, 197, 94, 0.2);
-            color: #4ade80;
+        .project-link:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
         }
 
-        .status-completed {
-            background: rgba(59, 130, 246, 0.2);
-            color: #60a5fa;
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav-links {
+                flex-direction: column;
+            }
+
+            .project-header {
+                height: 300px;
+            }
+
+            .project-title {
+                font-size: 1.5rem;
+            }
+
+            .project-overlay {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -87,67 +258,120 @@
             </div>
         </nav>
 
-        <h1 class="section-title">My Projects</h1>
-        
-        <div class="project-grid">
+        <h1 class="page-title">Featured Projects</h1>
+
+        <div class="project-container">
+            <!-- Takoyaki Robot Project -->
             <div class="project-card">
-                <img src="/api/placeholder/400/200" alt="Takoyaki Robot" class="project-image">
+                <div class="project-header">
+                    <img src="/api/placeholder/1200/600" alt="Takoyaki Robot" class="project-image">
+                    <div class="project-overlay">
+                        <h2 class="project-title">Takoyaki Robot</h2>
+                        <div class="project-date">May 2024 - Present</div>
+                    </div>
+                </div>
                 <div class="project-content">
-                    <span class="project-status status-active">Active Project</span>
-                    <h2 class="project-title">Takoyaki Robot</h2>
                     <p class="project-description">
-                        Advanced robotics simulation using IsaacSim, implementing LLM and ROS2 for a 6-DoF robotic manipulator. Features computer vision models like RT-DETR for enhanced automation.
+                        Advanced robotics simulation project focused on automated food preparation. The system leverages IsaacSim for physics-based simulation and integrates with ROS2 for sophisticated robotic control. Implementation includes cutting-edge computer vision and LLM technologies for enhanced automation.
                     </p>
+                    
+                    <h3 class="features-title">Key Features</h3>
+                    <ul class="features-list">
+                        <li>6-DoF robotic manipulator with precise gripper control</li>
+                        <li>RT-DETR vision model implementation for accurate object detection</li>
+                        <li>LLM integration for advanced decision-making capabilities</li>
+                        <li>Real-time physics simulation using IsaacSim environment</li>
+                        <li>ROS2-based control system architecture</li>
+                    </ul>
+
                     <div class="tech-tags">
                         <span class="tech-tag">IsaacSim</span>
                         <span class="tech-tag">ROS2</span>
+                        <span class="tech-tag">Python</span>
                         <span class="tech-tag">LLM</span>
-                        <span class="tech-tag">RT-DETR</span>
                         <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">RT-DETR</span>
                     </div>
+
                     <div class="project-links">
-                        <a href="#" class="btn">View Demo</a>
-                        <a href="#" class="btn">GitHub</a>
+                        <a href="#" class="project-link">View Demo</a>
+                        <a href="#" class="project-link">GitHub Repository</a>
                     </div>
                 </div>
             </div>
 
+            <!-- Auto-Resuscitator Project -->
             <div class="project-card">
-                <img src="/api/placeholder/400/200" alt="Auto-Resuscitator" class="project-image">
+                <div class="project-header">
+                    <img src="/api/placeholder/1200/600" alt="Auto-Resuscitator" class="project-image">
+                    <div class="project-overlay">
+                        <h2 class="project-title">Auto-Resuscitator (Amboxtronic)</h2>
+                        <div class="project-date">April 2020 - October 2022</div>
+                    </div>
+                </div>
                 <div class="project-content">
-                    <span class="project-status status-completed">Completed</span>
-                    <h2 class="project-title">Auto-Resuscitator (Amboxtronic)</h2>
                     <p class="project-description">
-                        Medical device project involving circuit design and Arduino programming. Successfully implemented and tested with CITREX H4 analyzer for medical validation.
+                        Medical device project focused on developing an automated resuscitation system. Led the hardware development and Arduino programming aspects of this critical healthcare solution, with successful validation using professional medical testing equipment.
                     </p>
+
+                    <h3 class="features-title">Achievements & Features</h3>
+                    <ul class="features-list">
+                        <li>Successfully validated system performance with CITREX H4 analyzer</li>
+                        <li>Designed and implemented custom circuit solutions</li>
+                        <li>Developed robust Arduino-based control system</li>
+                        <li>Created cost-effective solution for medical facilities</li>
+                        <li>Implemented safety protocols and fail-safes</li>
+                    </ul>
+
                     <div class="tech-tags">
                         <span class="tech-tag">Arduino</span>
                         <span class="tech-tag">Circuit Design</span>
                         <span class="tech-tag">Medical Equipment</span>
                         <span class="tech-tag">Hardware</span>
+                        <span class="tech-tag">Medical Testing</span>
                     </div>
+
                     <div class="project-links">
-                        <a href="#" class="btn">Case Study</a>
+                        <a href="#" class="project-link">View Case Study</a>
+                        <a href="#" class="project-link">Documentation</a>
                     </div>
                 </div>
             </div>
 
+            <!-- Wifi-THMD Project -->
             <div class="project-card">
-                <img src="/api/placeholder/400/200" alt="Wifi-THMD" class="project-image">
+                <div class="project-header">
+                    <img src="/api/placeholder/1200/600" alt="Wifi-THMD" class="project-image">
+                    <div class="project-overlay">
+                        <h2 class="project-title">Wifi-THMD</h2>
+                        <div class="project-date">2019 - 2020</div>
+                    </div>
+                </div>
                 <div class="project-content">
-                    <span class="project-status status-completed">Completed</span>
-                    <h2 class="project-title">Wifi-THMD</h2>
                     <p class="project-description">
-                        IoT-based temperature and humidity monitoring system for hospital equipment. Improved sample preservation through real-time monitoring and alerts.
+                        IoT-based monitoring system designed for maintaining optimal conditions for medical equipment and samples. Implemented comprehensive temperature and humidity monitoring with real-time alerts and data logging capabilities.
                     </p>
+
+                    <h3 class="features-title">Key Features</h3>
+                    <ul class="features-list">
+                        <li>Real-time temperature and humidity monitoring</li>
+                        <li>Wireless connectivity for remote access and control</li>
+                        <li>Automated alert system for out-of-range conditions</li>
+                        <li>Web-based interface for data visualization</li>
+                        <li>Historical data logging and analysis capabilities</li>
+                    </ul>
+
                     <div class="tech-tags">
                         <span class="tech-tag">IoT</span>
                         <span class="tech-tag">WiFi</span>
                         <span class="tech-tag">Sensors</span>
-                        <span class="tech-tag">Real-time Monitoring</span>
+                        <span class="tech-tag">Web Development</span>
+                        <span class="tech-tag">Data Logging</span>
                     </div>
+
                     <div class="project-links">
-                        <a href="#" class="btn">Documentation</a>
+                        <a href="#" class="project-link">View Documentation</a>
+                        <a href="#" class="project-link">Technical Details</a>
                     </div>
                 </div>
             </div>
@@ -155,7 +379,6 @@
     </div>
 
     <script>
-        // [Previous particles.js configuration]
         particlesJS('particles-js',
           {
             "particles": {
