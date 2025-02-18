@@ -3,79 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>Projects - Shakeel Ahmed</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        :root {
-            --primary: #2563eb;
-            --secondary: #1e40af;
-            --text: #e2e8f0;
-            --bg: #0f172a;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            margin-bottom: 2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .projects-grid {
+        .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
+            background: var(--card-bg);
+            border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .project-card:hover {
             transform: translateY(-10px);
+            border-color: var(--secondary);
         }
 
         .project-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .project-content {
@@ -83,45 +38,47 @@
         }
 
         .project-title {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
 
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin: 1rem 0;
-        }
-
-        .tag {
-            background: var(--secondary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.875rem;
+        .project-description {
+            margin-bottom: 1rem;
+            color: var(--text);
+            opacity: 0.9;
         }
 
         .project-links {
             display: flex;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
-        .project-links a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.3s;
+        .project-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
         }
 
-        .project-links a:hover {
-            color: var(--text);
+        .status-active {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+        }
+
+        .status-completed {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
         }
     </style>
 </head>
 <body>
+    <div id="particles-js"></div>
     <div class="container">
         <nav>
-            <div class="logo">Portfolio</div>
+            <div class="logo">Shakeel Ahmed</div>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="about.html">About/CV</a>
@@ -130,58 +87,133 @@
             </div>
         </nav>
 
-        <h1>My Projects</h1>
-        <div class="projects-grid">
+        <h1 class="section-title">My Projects</h1>
+        
+        <div class="project-grid">
             <div class="project-card">
-                <img src="/api/placeholder/400/200" alt="Simulation Project" class="project-image">
+                <img src="/api/placeholder/400/200" alt="Takoyaki Robot" class="project-image">
                 <div class="project-content">
-                    <h3 class="project-title">IsaacSim Robotics Project</h3>
-                    <p>Advanced robotics simulation project implementing complex physics-based interactions.</p>
-                    <div class="project-tags">
-                        <span class="tag">IsaacSim</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">Robotics</span>
+                    <span class="project-status status-active">Active Project</span>
+                    <h2 class="project-title">Takoyaki Robot</h2>
+                    <p class="project-description">
+                        Advanced robotics simulation using IsaacSim, implementing LLM and ROS2 for a 6-DoF robotic manipulator. Features computer vision models like RT-DETR for enhanced automation.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">IsaacSim</span>
+                        <span class="tech-tag">ROS2</span>
+                        <span class="tech-tag">LLM</span>
+                        <span class="tech-tag">RT-DETR</span>
+                        <span class="tech-tag">Computer Vision</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" target="_blank">GitHub</a>
-                        <a href="#" target="_blank">Demo</a>
+                        <a href="#" class="btn">View Demo</a>
+                        <a href="#" class="btn">GitHub</a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
-                <img src="/api/placeholder/400/200" alt="LLM Project" class="project-image">
+                <img src="/api/placeholder/400/200" alt="Auto-Resuscitator" class="project-image">
                 <div class="project-content">
-                    <h3 class="project-title">LLM Implementation</h3>
-                    <p>Custom implementation of language models with optimization techniques.</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">ML</span>
-                        <span class="tag">NLP</span>
+                    <span class="project-status status-completed">Completed</span>
+                    <h2 class="project-title">Auto-Resuscitator (Amboxtronic)</h2>
+                    <p class="project-description">
+                        Medical device project involving circuit design and Arduino programming. Successfully implemented and tested with CITREX H4 analyzer for medical validation.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Arduino</span>
+                        <span class="tech-tag">Circuit Design</span>
+                        <span class="tech-tag">Medical Equipment</span>
+                        <span class="tech-tag">Hardware</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" target="_blank">GitHub</a>
-                        <a href="#" target="_blank">Paper</a>
+                        <a href="#" class="btn">Case Study</a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
-                <img src="/api/placeholder/400/200" alt="C++ Project" class="project-image">
+                <img src="/api/placeholder/400/200" alt="Wifi-THMD" class="project-image">
                 <div class="project-content">
-                    <h3 class="project-title">High-Performance Computing Engine</h3>
-                    <p>Real-time data processing engine built with C++ for maximum performance.</p>
-                    <div class="project-tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">HPC</span>
+                    <span class="project-status status-completed">Completed</span>
+                    <h2 class="project-title">Wifi-THMD</h2>
+                    <p class="project-description">
+                        IoT-based temperature and humidity monitoring system for hospital equipment. Improved sample preservation through real-time monitoring and alerts.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">IoT</span>
+                        <span class="tech-tag">WiFi</span>
+                        <span class="tech-tag">Sensors</span>
+                        <span class="tech-tag">Real-time Monitoring</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" target="_blank">GitHub</a>
-                        <a href="#" target="_blank">Documentation</a>
+                        <a href="#" class="btn">Documentation</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // [Previous particles.js configuration]
+        particlesJS('particles-js',
+          {
+            "particles": {
+              "number": {
+                "value": 80,
+                "density": {
+                  "enable": true,
+                  "value_area": 800
+                }
+              },
+              "color": {
+                "value": "#3b82f6"
+              },
+              "shape": {
+                "type": "circle"
+              },
+              "opacity": {
+                "value": 0.5,
+                "random": false
+              },
+              "size": {
+                "value": 3,
+                "random": true
+              },
+              "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#3b82f6",
+                "opacity": 0.4,
+                "width": 1
+              },
+              "move": {
+                "enable": true,
+                "speed": 6,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false
+              }
+            },
+            "interactivity": {
+              "detect_on": "canvas",
+              "events": {
+                "onhover": {
+                  "enable": true,
+                  "mode": "repulse"
+                },
+                "onclick": {
+                  "enable": true,
+                  "mode": "push"
+                },
+                "resize": true
+              }
+            },
+            "retina_detect": true
+          }
+        );
+    </script>
 </body>
 </html>
